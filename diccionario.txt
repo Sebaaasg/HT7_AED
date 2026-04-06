@@ -1,0 +1,6 @@
+(oui, si)
+(maison, casa)
+(devoirs, tarea)
+(femme, mujer)
+(chien, perro)
+(ville, pueblo)
