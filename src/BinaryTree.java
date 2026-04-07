@@ -1,3 +1,24 @@
+/**
+ * REFERENCIA DE IMPLEMENTACIÓN:
+ * La lógica base y la comprensión para la estructura de los nodos 
+ * y las ramas del Árbol Binario de Búsqueda BST fueron tomadas de los 
+ * conceptos descritos en el libro de texto "Java Structures", Capítulo 12.
+ * 
+ * NOTA:
+ * A diferencia de la implementación original sugerida en el libro que 
+ * hace uso de la recursividad, para esta hoja de trabajo tomé la decisión 
+ * de rediseñar los métodos de inserción, búsqueda y el recorrido In-Order 
+ * hacia un enfoque iterativo usando ciclos while y la estructura de datos
+ * Pila. Esta adaptación la realicé para evitar problemas de desbordamiento
+ * de memoria StackOverflow, ya que el árbol no se balancea solo, por lo que al hacer el
+ * profiling con miles de datos, el árbol tendrá ramas larguísimas y al usar
+ * recursividad, por cada nodo que se baje, Java abre un nuevo proceso en la memoria 
+ * interna del procesador, llamado Call Stack. Dicha memoria es pequeña por 
+ * lo que si se tienen muchos datos es muy probable que el programa colapse. 
+ * Es por ello que decidí usar ciclos básicos while para garantizar mejor 
+ * rendimiento de la CPU durante el profiling masivo con miles de datos.
+ */
+
 import java.util.Stack;
 
 // E es el tipo de elemento que guardará el árbol
@@ -63,7 +84,7 @@ public class BinaryTree<E extends Comparable<E>> {
                     isInserted = true; 
                 }
             } 
-            // Si el dato es igual no se hace nada ya que no se pueden tener duplicados
+            // Si el dato es igual no se hace nada, ya que no se pueden tener duplicados
             else {
                 isInserted = true;
             }
